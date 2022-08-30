@@ -92,6 +92,36 @@
                                         @enderror
                                     </div>
                                 </div>
+                  
+                                <div class="input-field__group">
+                                    
+                                    <div class="input-field">
+                                        <x-forms.label name="brand " for="brand" />
+                                        <select name="brand" class="select2bs4 @error('brand') is-invalid @enderror timezone-select form-control">
+                                        @foreach ($brands as $key => $brand)
+                                            <option {{ $key == (!empty($store) ? $store->brand_id : 0) ? 'selected' : '' }} value="{{ $brand->value }}">{{ $brand->name }}</option>
+                                        @endforeach
+                                        @error('brand')
+                                            <span class="invalid-feedback" role="alert"><span>{{ $message }}</span></span>
+                                        @enderror
+                                         </select>
+                                    </div>
+                                </div>
+
+                                <div class="input-field__group">
+                                    
+                                    <div class="input-field">
+                                        <x-forms.label name="company" for="company" />
+                                        <select name="company" class="select2bs4 @error('company') is-invalid @enderror timezone-select form-control">
+                                        @foreach ($companies as $key => $company)
+                                            <option {{ $key == (!empty($store) ? $store->company_id : 0) ? 'selected' : '' }} value="{{ $company->value }}">{{ $company->name }}</option>
+                                        @endforeach
+                                        @error('company')
+                                            <span class="invalid-feedback" role="alert"><span>{{ $message }}</span></span>
+                                        @enderror
+                                         </select>
+                                    </div>
+                                </div>
 
                                 <button class="btn" type="submit">{{ __('update_store') }}</button>
                             </form>

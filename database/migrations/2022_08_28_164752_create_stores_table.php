@@ -20,6 +20,8 @@ class CreateStoresTable extends Migration
             $table->string('logo')->default('backend/image/default-user.png');
             $table->string('address');
             
+            $table->integer('brand_id')->nullable();
+            $table->integer('company_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

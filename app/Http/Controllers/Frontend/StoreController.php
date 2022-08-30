@@ -4,6 +4,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Models\Store;
+use App\Models\Company;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -17,9 +18,11 @@ class StoreController extends Controller
 { 
     public function index()
     {
+        $companies = Company::get();
+        $brands = Brand::get();
         $store = Store::where('user_id', auth()->user()->id)->first();
         // dd($store);
-        return view('frontend.store.index', compact('store'));
+        return view('frontend.store.index', compact('store', 'brands', 'companies'));
     }
 
     public function updateStore(Request $request)
@@ -37,6 +40,8 @@ class StoreController extends Controller
             'name' => $request->name,
             'logo' => uploadImage($request->logo, 'store'), 
             'banner' => uploadImage($request->banner, 'store'),
+            'brand_id' => $request->brand,
+            'company_id' => $request->company,
             'address' => $request->address,
         ]);
 

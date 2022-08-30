@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\ModuleSetting;
+use Database\Seeders\CompanySeeder;
 use Database\Seeders\SeoSeeder;
 use Illuminate\Database\Seeder;
 use Modules\Category\Database\Seeders\CategoryDatabaseSeeder;
@@ -31,6 +32,7 @@ class DatabaseSeeder extends Seeder
             CookiesSeeder::class,
             SeoSeeder::class,
             CmsSeeder::class,
+            CompanySeeder::class,
         ]);
     }
 }

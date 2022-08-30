@@ -21,6 +21,83 @@
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group row">
+                                    <x-forms.label name="description" required="true" class="col-sm-3 col-form-label" />
+                                    <div class="col-sm-9">
+                                        <input value="{{ old('description') }}" name="description" type="text"
+                                            class="form-control @error('name') is-invalid @enderror"
+                                            placeholder="description">
+                                        @error('description')
+                                            <span class="invalid-feedback"
+                                                role="alert"><strong>{{ $message }}</strong></span>
+                                        @enderror
+                                    </div>
+                                </div> 
+                                <div class="form-group row">
+                                    <x-forms.label name="meta_title" required="true" class="col-sm-3 col-form-label" />
+                                    <div class="col-sm-9">
+                                        <input value="{{ old('meta_title') }}" name="meta_title" type="text"
+                                            class="form-control @error('meta_title') is-invalid @enderror"
+                                            placeholder="meta title">
+                                        @error('meta_title')
+                                            <span class="invalid-feedback"
+                                                role="alert"><strong>{{ $message }}</strong></span>
+                                        @enderror
+                                    </div>
+                                </div>  
+                                <div class="form-group row">
+                                    <x-forms.label name="meta_description" required="true" class="col-sm-3 col-form-label" />
+                                    <div class="col-sm-9">
+                                        <input value="{{ old('meta_description') }}" name="meta_description" type="text"
+                                            class="form-control @error('meta_description') is-invalid @enderror"
+                                            placeholder="meta description">
+                                        @error('meta_description')
+                                            <span class="invalid-feedback"
+                                                role="alert"><strong>{{ $message }}</strong></span>
+                                        @enderror
+                                    </div>
+                                </div> 
+                                <div class="form-group row">
+                                    <x-forms.label name="slug" required="true" class="col-sm-3 col-form-label" />
+                                    <div class="col-sm-9">
+                                        <input value="{{ old('slug') }}" name="slug" type="text"
+                                            class="form-control @error('slug') is-invalid @enderror"
+                                            placeholder="slug">
+                                        @error('slug')
+                                            <span class="invalid-feedback"
+                                                role="alert"><strong>{{ $message }}</strong></span>
+                                        @enderror
+                                    </div>
+                                </div> 
+                                <div class="form-group row">
+                                    <x-forms.label name="meta_keywords" required="true" class="col-sm-3 col-form-label" />
+                                    <div class="col-sm-9">
+                                        <input value="{{ old('meta_keywords') }}" name="meta_keywords" type="text"
+                                            class="form-control @error('meta_keywords') is-invalid @enderror"
+                                            placeholder="meta title">
+                                        @error('meta_keywords')
+                                            <span class="invalid-feedback"
+                                                role="alert"><strong>{{ $message }}</strong></span>
+                                        @enderror
+                                    </div>
+                                </div> 
+                                
+
+
+                                <div class="form-group row">
+                                    <x-forms.label name="category_name" required="true" class="col-sm-3 col-form-label" />
+                                    <div class="col-sm-9">
+                                        <select name="listing_type_id" class="select2bs4 @error('listing_type_id') is-invalid @enderror timezone-select form-control">
+                                            @foreach ($listing_types as $key => $listing_type)
+                                                <option {{ $key == 0 ? 'selected' : '' }} value="{{ $listing_type->value }}">{{ $listing_type->value }}</option>
+                                            @endforeach
+                                            @error('listing_type_id')
+                                                <span class="invalid-feedback" role="alert"><span>{{ $message }}</span></span>
+                                            @enderror
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
                                     <x-forms.label name="category_name" required="true" class="col-sm-3 col-form-label" />
                                     <div class="col-sm-9">
                                         <input value="{{ old('name') }}" name="name" type="text"

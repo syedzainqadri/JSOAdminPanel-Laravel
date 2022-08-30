@@ -1,0 +1,13 @@
+{
+    "name": "ListType",
+    "alias": "listtype",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\ListType\\Providers\\ListTypeServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
