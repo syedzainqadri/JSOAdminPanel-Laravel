@@ -43,7 +43,7 @@
                         {{ __('post_ads') }}
                     </a>
                 </li>
-            @endif
+            @endif 
             <li class="dashboard__nav-item">
                 <a href="{{ route('frontend.adds') }}"
                     class="dashboard__nav-link {{ request()->routeIs('frontend.adds') ? 'active' : '' }}">
@@ -51,6 +51,15 @@
                         <x-svg.list-icon width="24" height="24" stroke="currentColor" />
                     </span>
                     {{ __('my_ads') }}
+                </a>
+            </li>
+            <li class="dashboard__nav-item">
+                <a href="{{ route('frontend.store') }}"
+                    class="dashboard__nav-link {{ request()->routeIs('frontend.adds') ? 'active' : '' }}">
+                    <span class="icon">
+                        <x-svg.location-icon width="24" height="24" stroke="currentColor" />
+                    </span>
+                    {{ __('my_store') }}
                 </a>
             </li>
             <li class="dashboard__nav-item">
