@@ -88,7 +88,7 @@
                                     <div class="col-sm-9">
                                         <select name="listing_type_id" class="select2bs4 @error('listing_type_id') is-invalid @enderror timezone-select form-control">
                                             @foreach ($listing_types as $key => $listing_type)
-                                                <option {{ $key == 0 ? 'selected' : '' }} value="{{ $listing_type->value }}">{{ $listing_type->value }}</option>
+                                                <option {{ $key == 0 ? 'selected' : '' }} value="{{ $listing_type->value }}">{{ $listing_type->name }}</option>
                                             @endforeach
                                             @error('listing_type_id')
                                                 <span class="invalid-feedback" role="alert"><span>{{ $message }}</span></span>
