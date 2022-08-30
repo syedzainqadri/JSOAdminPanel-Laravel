@@ -16,6 +16,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Modules\Category\Http\Requests\CategoryFormRequest;
 use Modules\Category\Repositories\CategoryRepositories;
 use Modules\CustomField\Entities\CustomField;
+use Modules\ListType\Entities\ListType;
 
 class CategoryController extends Controller
 {
@@ -49,7 +50,9 @@ class CategoryController extends Controller
         if (!userCan('category.create')) {
             return abort(403);
         }
-        return view('category::category.create');
+        $listing_types = ListType::get();
+
+        return view('category::category.create', compact('listing_types'));
     }
 
     /**
@@ -85,7 +88,8 @@ class CategoryController extends Controller
         if (!userCan('category.update')) {
             return abort(403);
         }
-        return view('category::category.edit', compact('category'));
+        $listing_types = ListType::get();
+        return view('category::category.edit', compact('category', 'listing_types'));
     }
 
     /**

@@ -17,5 +17,6 @@
     "CustomField": true,
     "Map": true,
     "Review": true,
-    "PushNotification": true
+    "PushNotification": true,
+    "ListType": true
 }

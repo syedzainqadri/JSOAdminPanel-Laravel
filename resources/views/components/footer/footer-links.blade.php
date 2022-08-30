@@ -8,6 +8,9 @@
         <li class="footer-menu__item">
             <a href="{{ route('frontend.about') }}" class="footer-menu__link text--body-3">{{ __('about') }}</a>
         </li>
+        <li class="footer-menu__item">
+            <a href="{{ route('frontend.store.lists') }}" class="footer-menu__link text--body-3">{{ __('all_stores') }}</a>
+        </li>
         @if ($blog_enable)
             <li class="footer-menu__item">
                 <a href="{{ route('frontend.blog') }}" class="footer-menu__link text--body-3">{{ __('blog') }}</a>

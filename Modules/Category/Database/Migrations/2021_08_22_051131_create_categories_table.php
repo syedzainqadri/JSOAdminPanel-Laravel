@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateCategoriesTable extends Migration
-{
+{ 
     /**
      * Run the migrations.
      *
@@ -19,6 +19,12 @@ class CreateCategoriesTable extends Migration
             $table->string('image')->nullable();
             $table->string('slug');
             $table->longText('icon')->nullable();
+            $table->longText('description')->nullable();
+            $table->longText('meta_title')->nullable();
+            $table->longText('meta_description')->nullable();
+            $table->longText('meta_keywords')->nullable();
+            $table->integer('listing_type_id')->nullable();
+
             $table->integer('order')->unsigned()->default(0);
             $table->boolean('status')->default(1);
             $table->timestamps();

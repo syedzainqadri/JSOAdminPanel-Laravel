@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\Frontend\DashboardController;
 use App\Http\Controllers\Frontend\SellerDashboardController;
 use App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\Frontend\StoreController;
 
 // show website pages
 Route::group(['as' => 'frontend.'], function () {
@@ -43,10 +44,17 @@ Route::group(['as' => 'frontend.'], function () {
 
     Route::get('ad-list-search', [FilterController::class, 'search'])->name('adlist.search');
     Route::get('category/{slug}', [FilterController::class, 'adsByCategory'])->name('adlist.category.show');
+    Route::get('/store/lists', [StoreController::class, 'allStores'])->name('store.lists');
+    Route::get('/store/ad-lists/{userStore}', [StoreController::class, 'userStoreAds'])->name('store.ad-lists');
 
     // customer dashboard
     Route::prefix('dashboard')->middleware(['auth:user', 'verified'])->group(function () {
         Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
+
+        Route::controller(StoreController::class)->group(function () {
+            Route::get('/store', 'index')->name('store');
+            Route::post('/updateStore', 'updateStore')->name('updateStore');
+        });
 
         Route::controller(AdPostController::class)->prefix('post')->group(function () {
             // Ad Create
