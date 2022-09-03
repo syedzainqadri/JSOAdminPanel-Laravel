@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\SettingController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\CustomerController;
 use App\Http\Controllers\Api\MessengerController;
+use App\Http\Controllers\Api\StoreController;
 
 Route::get('/test', function (Request $request) {
 
@@ -78,6 +79,18 @@ Route::middleware(['auth:api'])->group(function () {
 Route::controller(CategoryController::class)->group(function () {
     Route::get('/categories', 'categories');
     Route::get('/categories/{category}/subcategories', 'categoriesSubcategories');
+    Route::post('category/create', 'create_category');
+    Route::post('category/update/{id}', 'update_category');
+    Route::get('category/show/{id}', 'show_category');
+    Route::delete('category/delete/{id}', 'delete_category');
+});
+
+// Store Controller
+Route::controller(StoreController::class)->group(function () {
+    Route::post('store/create', 'create_store');
+    Route::post('store/update/{id}', 'update_store');
+    Route::get('store/show/{id}', 'show_store');
+    Route::delete('store/delete/{id}', 'delete_store');
 });
 
 // Ad Controller
