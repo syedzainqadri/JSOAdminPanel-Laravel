@@ -12,6 +12,7 @@ use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\CustomerController;
 use App\Http\Controllers\Api\MessengerController;
 use App\Http\Controllers\Api\StoreController;
+use App\Http\Controllers\Api\CustomFieldController;
 
 Route::get('/test', function (Request $request) {
 
@@ -91,6 +92,11 @@ Route::controller(StoreController::class)->group(function () {
     Route::post('store/update/{id}', 'update_store');
     Route::get('store/show/{id}', 'show_store');
     Route::delete('store/delete/{id}', 'delete_store');
+});
+
+// Custom Feild Controller
+Route::controller(CustomFieldController::class)->group(function () {
+    Route::post('custom-field/create', 'create');
 });
 
 // Ad Controller

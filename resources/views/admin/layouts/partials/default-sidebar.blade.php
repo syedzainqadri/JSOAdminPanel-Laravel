@@ -27,6 +27,15 @@
                             </a>
                         </li>
                     @endif
+                    {{-- @if (Module::collections()->has('Order'))
+                        <li class="nav-item">
+                            <a href="{{ route('module.order.index') }}"
+                                class="nav-link {{ Route::is('module.order.*') ? ' active' : '' }}">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>{{ __('order') }}</p>
+                            </a>
+                        </li>
+                    @endif --}}
                     @if (Module::collections()->has('Plan') && userCan('plan.view') && $priceplan_enable)
                         <x-sidebar-list :linkActive="Route::is('module.plan.index') || Route::is('module.plan.create') ? true : false" route="module.plan.index" icon="fas fa-credit-card">
                             {{ __('pricing_plan') }}
